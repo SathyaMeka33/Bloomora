@@ -1,0 +1,157 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'admin';
+    }
+    
+    function isPartner() {
+      return isAuthenticated() && (getUserRole() == 'partner' || getUserRole() == 'admin');
+    }
+
+    // 1. Users Collection
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isAuthenticated() && isOwner(userId);
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if isAdmin();
+      
+      // 12. Recipients & 13. Reminders Subcollections
+      match /reminders/{reminderId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+      match /recipients/{recipientId} {
+        allow read, write: if isOwner(userId) || isAdmin();
+      }
+    }
+
+    // 2. Products & 6. Partner Products Collection
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update: if isPartner() || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // 3. Categories & 4. Occasions Collection
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /occasions/{occasionId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 5. Partners Collection
+    match /partners/{partnerId} {
+      allow read: if true;
+      allow write: if isPartner();
+    }
+    match /partner_shops/{shopId} {
+      allow read: if true;
+      allow write: if isPartner();
+    }
+
+    // 7. Inventory Collection
+    match /inventory/{inventoryId} {
+      allow read: if isPartner() || isAdmin();
+      allow write: if isPartner() || isAdmin();
+    }
+
+    // 8. Orders Collection
+    match /orders/{orderId} {
+      allow read: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid ||
+        resource.data.partnerId == request.auth.uid ||
+        isPartner()
+      );
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid ||
+        isPartner()
+      );
+      allow delete: if isAdmin();
+    }
+
+    // 10. Cart & 11. Wishlist Collection
+    match /carts/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+    match /wishlists/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+
+    // 14. GiftStories & 15. CustomGifts Collection
+    match /giftStories/{storyId} {
+      allow read, write: if isAuthenticated();
+    }
+    match /customGifts/{customId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // 16. PackagingOptions, 17. DeliveryLocations, 18. PickupLocations Collection
+    match /packagingOptions/{optionId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /deliveryLocations/{locationId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /pickupLocations/{locationId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // 19. AIRecommendations Collection
+    match /aiRecommendations/{recId} {
+      allow read, write: if isAuthenticated();
+    }
+
+    // 20. PartnerApplications Collection
+    match /partnerApplications/{appId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Partner Ad Analytics Collection
+    match /partnerAdAnalytics/{analyticsId} {
+      allow read: if isPartner() || isAdmin();
+      allow create, update: if true; // Allows server/client click tracking
+      allow delete: if isAdmin();
+    }
+
+    // 21. Surprise Experiences & Packages Collection
+    match /surpriseExperiences/{expId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /surprisePackages/{pkgId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /surprisePlans/{planId} {
+      allow read, write: if isAuthenticated() || isOwner(resource.data.userId);
+    }
+
+    // Default fallback rule
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
+

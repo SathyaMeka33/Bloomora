@@ -1,0 +1,213 @@
+{
+  "bouquets": {
+    "default": [
+      "/products/bouquets/default/velvet-box-arrangement-2.png",
+      "/products/bouquets/default/velvet-box-arrangement-3.png",
+      "/products/bouquets/default/velvet-box-arrangement-4.png",
+      "/products/bouquets/default/velvet-box-arrangement-5.png",
+      "/products/bouquets/default/velvet-box-arrangement-6.png",
+      "/products/bouquets/default/velvet-box-arrangement-7.png",
+      "/products/bouquets/default/velvet-box-arrangement-8.png",
+      "/products/bouquets/default/velvet-box-arrangement-9.png",
+      "/products/bouquets/default/velvet-box-arrangement.png"
+    ]
+  },
+  "cakes": {
+    "default": [
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-1.png",
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-2.png",
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-3.png",
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-4.png",
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-5.png",
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-6.png",
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-7.png",
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-8.png",
+      "/products/cakes/default/bento-chocolate-truffle-mini-cake-9.png"
+    ]
+  },
+  "flowers": {
+    "default": [
+      "/products/flowers/default/12-red-flowers-bouquet-1.png",
+      "/products/flowers/default/12-red-flowers-bouquet-2.png",
+      "/products/flowers/default/12-red-flowers-bouquet-3.png",
+      "/products/flowers/default/12-red-flowers-bouquet-4.png",
+      "/products/flowers/default/12-red-flowers-bouquet-5.png",
+      "/products/flowers/default/12-red-flowers-bouquet-6.png",
+      "/products/flowers/default/12-red-flowers-bouquet-7.png"
+    ]
+  },
+  "general-gifts": {
+    "default": [
+      "/products/general-gifts/default/custom_ceramic_mug.jpg",
+      "/products/general-gifts/default/custom_ceramic_mug_10.jpeg",
+      "/products/general-gifts/default/custom_ceramic_mug_2.jpg",
+      "/products/general-gifts/default/custom_ceramic_mug_3.jpg",
+      "/products/general-gifts/default/custom_ceramic_mug_4.jpeg",
+      "/products/general-gifts/default/custom_ceramic_mug_5.jpeg",
+      "/products/general-gifts/default/custom_ceramic_mug_6.jpeg",
+      "/products/general-gifts/default/custom_ceramic_mug_7.jpeg",
+      "/products/general-gifts/default/custom_ceramic_mug_8.jpeg",
+      "/products/general-gifts/default/custom_ceramic_mug_9.jpeg"
+    ]
+  },
+  "corporate": {
+    "Diary+Pen set": [
+      "/products/corporate/diary-pen-set/diary-pen-set.png",
+      "/products/corporate/diary-pen-set/magnific_a-close-editorial-photogr_ovbglag829.png",
+      "/products/corporate/diary-pen-set/magnific_a-diary-and-pen-gift-set-_n2vxi8u6d9.png",
+      "/products/corporate/diary-pen-set/magnific_a-diary-and-pen-gift-set-_vxfnk5cmmu.png",
+      "/products/corporate/diary-pen-set/magnific_a-diary-and-pen-set-displ_klyi22zkqp.png",
+      "/products/corporate/diary-pen-set/magnific_a-diary-and-pen-set-stage_79zqpp8jal.png",
+      "/products/corporate/diary-pen-set/magnific_an-editorial-photograph-f_8a5zggtiru.png",
+      "/products/corporate/diary-pen-set/magnific_commercial-studio-4k-pack_juiw1xpld0.png",
+      "/products/corporate/diary-pen-set/magnific_commercial-studio-4k-pack_rgnskxzxtc.png"
+    ],
+    "Different Products": [
+      "/products/corporate/different-products/magnific_clean-commercial-product-_5jyskgxkxe.png",
+      "/products/corporate/different-products/magnific_commercial-studio-4k-prod_ks4lemy16b.png",
+      "/products/corporate/different-products/magnific_highend-commercial-produc_klpsukhkqp.png",
+      "/products/corporate/different-products/magnific_highend-commercial-produc_p8qicdiehw.png",
+      "/products/corporate/different-products/magnific_hightech-commercial-produ_aflhac0fsh.png",
+      "/products/corporate/different-products/magnific_hightech-commercial-produ_go2ygc1sxo.png",
+      "/products/corporate/different-products/magnific_studio-product-packshot-o_o6w34icynm.png",
+      "/products/corporate/different-products/magnific_studio-product-packshot-o_wdhetpvcxe.png",
+      "/products/corporate/different-products/magnific_topdown-commercial-produc_bxol1pe5y2.png",
+      "/products/corporate/different-products/magnific_topdown-commercial-produc_ljzywaegv9.png",
+      "/products/corporate/different-products/magnific_topdown-editorial-photo-o_jnnbioeoq4.png"
+    ],
+    "Employee Welcome Kit": [
+      "/products/corporate/employee-welcome-kit/employee-welcome-kit.png",
+      "/products/corporate/employee-welcome-kit/magnific_commercial-studio-4k-prod_9zv2sxgnyz.png",
+      "/products/corporate/employee-welcome-kit/magnific_editorial-photograph-of-a_ifknpbitve.png",
+      "/products/corporate/employee-welcome-kit/magnific_open-unboxing-shot-of-a-c_ifknyjktve.png"
+    ],
+    "Executive Gift Set": [
+      "/products/corporate/executive-gift-set/executive-gift-set.png",
+      "/products/corporate/executive-gift-set/whatsapp-image-2026-09-14-at-4-58-26-pm.jpeg",
+      "/products/corporate/executive-gift-set/whatsapp-image-2026-09-14-at-4-58-42-pm.jpeg",
+      "/products/corporate/executive-gift-set/whatsapp-image-2026-09-14-at-4-58-59-pm.jpeg",
+      "/products/corporate/executive-gift-set/whatsapp-image-2026-09-14-at-4-59-39-pm.jpeg",
+      "/products/corporate/executive-gift-set/magnific_boardroom-table-closeup-t_vqjhv3ia47.png"
+    ],
+    "Mug+Pen+diary": [
+      "/products/corporate/mug-pen-diary/mug-pen-diary.png",
+      "/products/corporate/mug-pen-diary/magnific_availablelight-photograph_doeijlmpcl.png",
+      "/products/corporate/mug-pen-diary/magnific_availablelight-photograph_ju6a00yld0.png",
+      "/products/corporate/mug-pen-diary/magnific_ecommerce-product-photogr_dou8v4apcl.png",
+      "/products/corporate/mug-pen-diary/magnific_studiolike-desk-scene-of-_o6y5ortynm.png"
+    ],
+    "Mug+Pen+diary/Bottle +Diary+pen": [
+      "/products/corporate/mug-pen-diary-bottle-diary-pen/bottle-diary-pen.png",
+      "/products/corporate/mug-pen-diary-bottle-diary-pen/magnific_matteblack-insulated-wate_igdlf5x3uk.png",
+      "/products/corporate/mug-pen-diary-bottle-diary-pen/magnific_premium-sliding-gift-box-_79zqbfejal.png"
+    ],
+    "Premimum Corporate Hamper": [
+      "/products/corporate/premimum-corporate-hamper/premium-corporate-hamper.png",
+      "/products/corporate/premimum-corporate-hamper/whatsapp-image-2026-09-14-at-4-50-48-pm.jpeg",
+      "/products/corporate/premimum-corporate-hamper/whatsapp-image-2026-09-14-at-4-51-32-pm.jpeg",
+      "/products/corporate/premimum-corporate-hamper/whatsapp-image-2026-09-14-at-4-51-50-pm.jpeg",
+      "/products/corporate/premimum-corporate-hamper/whatsapp-image-2026-09-14-at-4-52-07-pm.jpeg",
+      "/products/corporate/premimum-corporate-hamper/whatsapp-image-2026-09-14-at-4-52-51-pm.jpeg",
+      "/products/corporate/premimum-corporate-hamper/whatsapp-image-2026-09-14-at-4-52-55-pm.jpeg",
+      "/products/corporate/premimum-corporate-hamper/magnific_a-wooden-cratestyle-premi_jnyirhhoq4.png",
+      "/products/corporate/premimum-corporate-hamper/magnific_an-elegant-black-leather-_nvtd9r8yqd.png",
+      "/products/corporate/premimum-corporate-hamper/magnific_editorial-photograph-of-a_upaforpwny.png"
+    ]
+  },
+  "kids": {
+    "All ages": [
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-18-pm-1.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-18-pm.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-19-pm-1.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-19-pm-2.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-19-pm.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-20-pm-1.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-20-pm-2.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-20-pm.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-21-pm-1.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-21-pm-2.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-21-pm.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-22-pm-1.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-22-pm-2.jpeg",
+      "/products/kids/all-ages/whatsapp-image-2026-09-14-at-5-07-22-pm.jpeg"
+    ],
+    "Junior Creator Craft Hamper (Ages 5\u20137)": [
+      "/products/kids/junior-creator-craft-hamper-ages-5-7/junior-creator-craft-hamper-ages-5-7.png",
+      "/products/kids/junior-creator-craft-hamper-ages-5-7/magnific_minimalist-topdown-commer_wdmy6p9cxe.png",
+      "/products/kids/junior-creator-craft-hamper-ages-5-7/magnific_studio-4k-commercial-prod_6amjjugijo.png",
+      "/products/kids/junior-creator-craft-hamper-ages-5-7/magnific_studio-4k-commercial-prod_ljreexrgv9.png"
+    ],
+    "Master Maker DIY Hamper (Ages 12+)": [
+      "/products/kids/master-maker-diy-hamper-ages-12/master-maker-diy-hamper-ages-12.png",
+      "/products/kids/master-maker-diy-hamper-ages-12/whatsapp-image-2026-09-14-at-5-10-10-pm-1.jpeg",
+      "/products/kids/master-maker-diy-hamper-ages-12/whatsapp-image-2026-09-14-at-5-10-10-pm.jpeg",
+      "/products/kids/master-maker-diy-hamper-ages-12/whatsapp-image-2026-09-14-at-5-10-11-pm-1.jpeg",
+      "/products/kids/master-maker-diy-hamper-ages-12/whatsapp-image-2026-09-14-at-5-10-11-pm-2.jpeg",
+      "/products/kids/master-maker-diy-hamper-ages-12/whatsapp-image-2026-09-14-at-5-10-11-pm.jpeg",
+      "/products/kids/master-maker-diy-hamper-ages-12/magnific_luxury-4k-commercial-prod_1l4mh51r4r.png"
+    ],
+    "Toddler Sensory Explorer Hamper (Ages 2\u20134)": [
+      "/products/kids/toddler-sensory-explorer-hamper-ages-2-4/toddler-sensory-explorer-hamper-ages-2-4.png",
+      "/products/kids/toddler-sensory-explorer-hamper-ages-2-4/magnific_bright-4k-commercial-prod_juiwknuld0.png",
+      "/products/kids/toddler-sensory-explorer-hamper-ages-2-4/magnific_bright-4k-commercial-prod_merubkrhjq.png",
+      "/products/kids/toddler-sensory-explorer-hamper-ages-2-4/magnific_commercial-4k-ecommerce-p_vqx0c0aa47.png"
+    ],
+    "Young Artist Studio Hamper (Ages 8\u201311)": [
+      "/products/kids/young-artist-studio-hamper-ages-8-11/young-artist-studio-hamper-ages-8-11.png",
+      "/products/kids/young-artist-studio-hamper-ages-8-11/magnific_highresolution-4k-b2c-pro_bxjo8o05y2.png"
+    ]
+  },
+  "premium": {
+    "Different Gifts": [
+      "/products/premium/different-gifts/magnific_commercial-45degree-angle_huxhomnvql.png",
+      "/products/premium/different-gifts/magnific_commercial-studio-packsho_igpyykx3uk.png",
+      "/products/premium/different-gifts/magnific_commercial-studio-product_ov5cw3r829.png",
+      "/products/premium/different-gifts/magnific_commercial-studio-product_xs67eiljfw.png",
+      "/products/premium/different-gifts/magnific_editorial-photograph-of-a_mbeiyeidcm.png",
+      "/products/premium/different-gifts/magnific_frontfacing-luxury-catalo_s7ryqisl8e.png",
+      "/products/premium/different-gifts/magnific_highend-commercial-4k-stu_ifkuy7gtve.png",
+      "/products/premium/different-gifts/magnific_highend-commercial-4k-stu_tdfonkkvnr.png",
+      "/products/premium/different-gifts/magnific_highend-commercial-4k-stu_go24qmrsxo.png",
+      "/products/premium/different-gifts/magnific_highend-studio-product-pa_8akexhtiru.png",
+      "/products/premium/different-gifts/magnific_highresolution-ecommerce-_jny3jzgoq4-1.png",
+      "/products/premium/different-gifts/magnific_minimalist-commercial-pro_ymmezz5wec.png",
+      "/products/premium/different-gifts/magnific_opulent-commercial-produc_n2mzytj6d9.png",
+      "/products/premium/different-gifts/magnific_overhead-topdown-4k-comme_rgnwhn9xtc.png",
+      "/products/premium/different-gifts/magnific_serene-commercial-studio-_ks4seid16b.png",
+      "/products/premium/different-gifts/magnific_serene-commercial-studio-_xs67fvsjfw.png",
+      "/products/premium/different-gifts/magnific_topdown-studio-product-fl_aflbi9afsh.png"
+    ],
+    "Gold Executive Hamper": [
+      "/products/premium/gold-executive-hamper/whatsapp-image-2026-09-14-at-5-12-55-pm-1.jpeg",
+      "/products/premium/gold-executive-hamper/whatsapp-image-2026-09-14-at-5-12-55-pm.jpeg",
+      "/products/premium/gold-executive-hamper/whatsapp-image-2026-09-14-at-5-12-56-pm-1.jpeg",
+      "/products/premium/gold-executive-hamper/whatsapp-image-2026-09-14-at-5-12-56-pm-2.jpeg",
+      "/products/premium/gold-executive-hamper/whatsapp-image-2026-09-14-at-5-12-56-pm.jpeg",
+      "/products/premium/gold-executive-hamper/magnific_highend-commercial-produc_3zpwvkvrey.png",
+      "/products/premium/gold-executive-hamper/magnific_luxury-45degree-angle-com_vqxpkwka47.png",
+      "/products/premium/gold-executive-hamper/magnific_photograph-of-a-compact-g_sya9t3zub8.png",
+      "/products/premium/gold-executive-hamper/magnific_photograph-of-a-gold-exec_fhs5oj5cdy.png",
+      "/products/premium/gold-executive-hamper/magnific_photograph-of-a-luxury-go_lw3oy9cswo.png",
+      "/products/premium/gold-executive-hamper/magnific_photograph-of-an-elongate_1l9uaybr4r.png"
+    ],
+    "Imperial Heritage Hamper": [
+      "/products/premium/imperial-heritage-hamper/whatsapp-image-2026-09-14-at-5-16-43-pm-1.jpeg",
+      "/products/premium/imperial-heritage-hamper/whatsapp-image-2026-09-14-at-5-16-43-pm.jpeg",
+      "/products/premium/imperial-heritage-hamper/whatsapp-image-2026-09-14-at-5-16-44-pm-1.jpeg",
+      "/products/premium/imperial-heritage-hamper/whatsapp-image-2026-09-14-at-5-16-44-pm.jpeg",
+      "/products/premium/imperial-heritage-hamper/magnific_frontfacing-studio-shot-o_kspfjej16b.png",
+      "/products/premium/imperial-heritage-hamper/magnific_product-photography-of-an_klpgngwkqp.png",
+      "/products/premium/imperial-heritage-hamper/magnific_product-photography-of-an_p302mme42c.png",
+      "/products/premium/imperial-heritage-hamper/magnific_product-photography-of-an_fhs56wkcdy.png",
+      "/products/premium/imperial-heritage-hamper/magnific_toptier-luxury-corporate-_sy2537lub8.png"
+    ],
+    "Silver Reserve Hamper": [
+      "/products/premium/silver-reserve-hamper/whatsapp-image-2026-09-14-at-5-20-44-pm.jpeg",
+      "/products/premium/silver-reserve-hamper/whatsapp-image-2026-09-14-at-5-20-45-pm.jpeg",
+      "/products/premium/silver-reserve-hamper/magnific_commercial-4k-studio-prod_kspfjig16b.png",
+      "/products/premium/silver-reserve-hamper/magnific_commercial-studio-product_mbc2hkydcm.png",
+      "/products/premium/silver-reserve-hamper/magnific_silver-reserve-hamper-arr_xmqaolsbfo.png",
+      "/products/premium/silver-reserve-hamper/magnific_silver-reserve-hamper-cap_3zewhv6rey.png"
+    ]
+  }
+}
