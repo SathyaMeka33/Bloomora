@@ -46,15 +46,18 @@ function CatalogContent() {
 
   // Build filter tabs combining high-level curation + exact category keys
   const categoryFilters = useMemo(() => [
-    { id: 'all', label: 'All Gifts (160)' },
+    { id: 'all', label: 'All Gifts (245)' },
+    { id: 'jewellery', label: 'Jewellery & Watches (67)' },
     { id: 'bouquets', label: 'Bouquets (23)' },
     { id: 'cakes', label: 'Cakes (22)' },
     { id: 'accessories-for-men', label: "Men's Accessories (32)" },
-    { id: 'customised-hampers', label: 'Customised Hampers (13)' },
+    { id: 'stationary-items', label: 'Stationery (27)' },
     { id: 'letters', label: 'Letters & Seals (18)' },
     { id: 'plants', label: 'Plants & Succulents (14)' },
-    { id: 'stationary-items', label: 'Stationery (27)' },
+    { id: 'customised-hampers', label: 'Customised Hampers (13)' },
+    { id: 'background-decoration-kits', label: 'Decoration Kits (11)' },
     { id: 'cars', label: 'RC Cars (11)' },
+    { id: 'traveling-items', label: 'Traveling Items (7)' },
     { id: 'best-sellers', label: 'Best Sellers' },
     { id: 'trending', label: 'Trending' },
   ], []);
@@ -98,6 +101,12 @@ function CatalogContent() {
           if (product.category !== 'custom-gifts') return false;
         } else if (selectedCategory === 'chocolate-bouquets') {
           if (product.category !== 'chocolate-bouquets') return false;
+        } else if (selectedCategory === 'jewellery' || selectedCategory === 'jewelry') {
+          if (product.category !== 'jewellery') return false;
+        } else if (selectedCategory === 'traveling-items' || selectedCategory === 'travel' || selectedCategory === 'travel-accessories') {
+          if (product.category !== 'traveling-items') return false;
+        } else if (selectedCategory === 'background-decoration-kits' || selectedCategory === 'decor-kits' || selectedCategory === 'decorations') {
+          if (product.category !== 'background-decoration-kits') return false;
         } else {
           if (product.category !== selectedCategory) return false;
         }

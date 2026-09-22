@@ -147,7 +147,7 @@ Bloomora supports five distinct system roles defined on the `User` model:
 
 ### 3.2 Authentic Curated Products & Catalog Engine (Gifts Catalog)
 
-Bloomora features **160 authentic curated products** across 8 distinct artisanal gifting categories. Every single product in the store directly maps to verified photography from the Gifts asset archive, ensuring 100% visual fidelity between the catalog and physical delivery.
+Bloomora features **245 authentic curated products** across 11 distinct artisanal gifting categories. Every single product in the store directly maps to verified photography from the Gifts asset archive, ensuring 100% visual fidelity between the catalog and physical delivery.
 
 #### Verified Product & Image Inventory Matrix
 
@@ -351,6 +351,107 @@ Bloomora features **160 authentic curated products** across 8 distinct artisanal
 | 10 | **Extreme 4WD Rock Crawler Trail Explorer** | High-Articulation Solid Axles & Beadlock Wheels | ₹2399 | /gifts/Cars/c1cf641b1e3816aa7fdb3fc941e8f3ab.jpg |
 | 11 | **Mercedes-AMG GT3 Track Edition RC Car** | Silver Arrow Livery with Massive Carbon Rear Wing | ₹2299 | /gifts/Cars/d0566bc7f8f5992854f084b313c1956a.jpg |
 
+
+
+##### Fine Jewellery, Bags & Luxury Watches (67 Products)
+
+| # | Product Name in Website | Subtitle / Focus | Price (INR) | Corresponding Image Asset |
+| :--- | :--- | :--- | :--- | :--- |
+| 01 | **Champagne Quilted Vegan Leather Crossbody Bag** | Gold Chain Shoulder Strap with Signature Turnlock | ₹1299 | /gifts/Jewellery/Bags/IMG_3982.JPG |
+| 02 | **Artisanal Woven Structured Summer Tote** | Hand-Braided Body with Silk Printed Twilly Scarf | ₹1099 | /gifts/Jewellery/Bags/IMG_3983.JPG |
+| 03 | **Ivory Pearl Handle Mini Evening Clutch** | Lustrous Freshwater Pearl Arc Top Handle and Gold Frame | ₹1399 | /gifts/Jewellery/Bags/IMG_3984.JPG |
+| 04 | **Caramel Croc-Embossed Baguette Shoulder Bag** | 90s Vintage Silhouette with Gleaming Brass Buckle | ₹1199 | /gifts/Jewellery/Bags/IMG_3985.JPG |
+| 05 | **Vintage Box Satchel with Dual Straps** | Structured Everyday Companion with Magnetic Snap Flap | ₹1249 | /gifts/Jewellery/Bags/IMG_3986.JPG |
+| 06 | **Minimalist Slate Grey Flap Handbag** | Matte Finish Saffiano Texture with Interior Organizer | ₹999 | /gifts/Jewellery/Bags/IMG_3987.JPG |
+| 07 | **Cloud Dumpling Pleated Clutch with Chunky Chain** | Buttery Soft Ruched Leather in Powder Cream | ₹1149 | /gifts/Jewellery/Bags/IMG_3988.JPG |
+| 08 | **Blush Rose Geometric Trapezoid Handbag** | Architectural Sculpted Top Handle Purse with Crossbody Strap | ₹1349 | /gifts/Jewellery/Bags/IMG_3989.JPG |
+| 09 | **18K Gold-Plated Paperclip Chain Choker** | Bold Elongated Links with Secure Lobster Clasp | ₹699 | /gifts/Jewellery/Chains/IMG_3990.JPG |
+| 10 | **Solitaire Teardrop Zirconia Pendant Necklace** | Faceted AAA Cubic Zirconia on Dainty Cable Chain | ₹549 | /gifts/Jewellery/Chains/IMG_3991.JPG |
+| 11 | **Celestial Crescent Moon and Star Layered Chain** | Dual-Strand Gold Necklace with Pave Star Accents | ₹649 | /gifts/Jewellery/Chains/IMG_3992.JPG |
+| 12 | **Vintage Medallion Sunburst Coin Pendant** | Embossed Radiant Sun Face on Antiqued Rope Chain | ₹599 | /gifts/Jewellery/Chains/IMG_3993.JPG |
+| 13 | **Emerald Cut Green Crystal Statement Necklace** | Deep Forest Emerald Crystal Framed in Gold Prongs | ₹749 | /gifts/Jewellery/Chains/IMG_3994.JPG |
+| 14 | **Dainty Rose Gold Sweetheart Lock Pendant** | Micro-Pave Crystal Heart Lock on Shimmer Chain | ₹529 | /gifts/Jewellery/Chains/IMG_3996.JPG |
+| 15 | **Liquid Gold Herringbone Snake Chain** | High-Shine Flat Flexible 4mm Chain Necklace | ₹699 | /gifts/Jewellery/Chains/IMG_3997.JPG |
+| 16 | **Freshwater Pearl and Zircon Y-Lariat Necklace** | Drop Lariat Design with Natural Baroque Pearl Finial | ₹799 | /gifts/Jewellery/Chains/IMG_3998.JPG |
+| 17 | **Filigree Floral Lace Medallion Pendant** | Intricate Openwork Floral Art in 18K Yellow Gold Dip | ₹599 | /gifts/Jewellery/Chains/IMG_3999.JPG |
+| 18 | **Minimalist Geometric Bar Layering Necklace** | Polished Horizontal Rose Gold Bar with Beveled Edges | ₹499 | /gifts/Jewellery/Chains/IMG_4001.JPG |
+| 19 | **Opal Aurora Teardrop Crystal Choker** | Iridescent Flashing Opal Simulant on Delicate Link | ₹579 | /gifts/Jewellery/Chains/IMG_4002.JPG |
+| 20 | **Royal Sapphire Blue Halo Pendant Chain** | Cobalt Blue Brilliant Cut Gem Surrounded by Crystal Halo | ₹729 | /gifts/Jewellery/Chains/IMG_4003.JPG |
+| 21 | **Twin Interlocking Circles Infinity Necklace** | Eternity Rings Symbolizing Everlasting Friendship and Love | ₹549 | /gifts/Jewellery/Chains/IMG_4006.JPG |
+| 22 | **Fluttering Butterfly Charm Rose Gold Chain** | Articulated Wing Butterfly with Sparkling Zirconia | ₹519 | /gifts/Jewellery/Chains/IMG_4007.JPG |
+| 23 | **Sparkling Tennis Crystal Choker Necklace** | Continuous Line of Bezel-Set Brilliant Cut Crystals | ₹899 | /gifts/Jewellery/Chains/IMG_4046.JPG |
+| 24 | **Golden Key of Wonder Filigree Pendant** | Intricate Crown Key Charm Symbolizing Love and Trust | ₹549 | /gifts/Jewellery/Chains/IMG_4047.JPG |
+| 25 | **Four-Leaf Clover Mother-of-Pearl Chain** | Lucky Clover Motif Inlaid with Lustrous White Shell | ₹699 | /gifts/Jewellery/Chains/IMG_4048.JPG |
+| 26 | **Zodiac Constellation Star Coin Necklace** | Celestial Horoscope Map Engraved on Matte Disc | ₹499 | /gifts/Jewellery/Chains/IMG_4049.JPG |
+| 27 | **Baguette Cut Diamond-Simulant Bar Pendant** | Modern Clean-Line Baguette Stones in Platinum Setting | ₹649 | /gifts/Jewellery/Chains/IMG_4050.JPG |
+| 28 | **Layered Twist Rope and Smooth Disc Duo Set** | Two Complementary Necklaces for Effortless Layering | ₹749 | /gifts/Jewellery/Chains/IMG_4051.JPG |
+| 29 | **Vintage Roman Numeral Circle Pendant Chain** | Timeless Watch-Bezel Inspired Dial with Crystal Center | ₹599 | /gifts/Jewellery/Chains/IMG_4052.JPG |
+| 30 | **Dainty Beaded Satellite Chain Choker** | Tiny Polished Gold Beads Spaced Along Cable Link | ₹479 | /gifts/Jewellery/Chains/IMG_4053.JPG |
+| 31 | **Baroque Pearl Drop Huggie Earrings** | Natural Luster Freshwater Pearls on Gold Huggie Hoops | ₹599 | /gifts/Jewellery/Earrings/IMG_4016.JPG |
+| 32 | **Floral Zirconia Cluster Stud Earrings** | Blossom Petal Arrangement with Brilliant Center Stone | ₹449 | /gifts/Jewellery/Earrings/IMG_4017.JPG |
+| 33 | **Chunky Twisted Gold Hoop Earrings** | Bold Croissant Texture 18K Gold Plated Lightweight Hoops | ₹549 | /gifts/Jewellery/Earrings/IMG_4018.JPG |
+| 34 | **Cascading Crystal Chandelier Drop Earrings** | Art Deco Shimmering Dangles with Pave Zirconia | ₹699 | /gifts/Jewellery/Earrings/IMG_4020.JPG |
+| 35 | **Solitaire Oval Cut Zirconia Promise Ring** | Classic 4-Prong Basket Setting with Slender Polished Band | ₹599 | /gifts/Jewellery/Rings/IMG_4144.JPG |
+| 36 | **Stackable Micro-Pave Eternity Band** | Continuous Halo of Shimmering Crystals in Rose Gold | ₹499 | /gifts/Jewellery/Rings/IMG_4145.JPG |
+| 37 | **Vintage Milgrain Floral Halo Ring** | Heirloom Filigree Detailing Framing a Cushion Center | ₹649 | /gifts/Jewellery/Rings/IMG_4146.JPG |
+| 38 | **Adjustable Dual-Band Open Cuff Ring** | Modern Wrap Ring with Twin Sparkling Marquise Tips | ₹449 | /gifts/Jewellery/Rings/IMG_4147.JPG |
+| 39 | **Iridescent Opal Teardrop Cocktail Ring** | Play-of-Color Simulated Opal Surrounded by Zircon Halo | ₹629 | /gifts/Jewellery/Rings/IMG_4148.JPG |
+| 40 | **Geometric Hexagon Signet Statement Ring** | Polished Flat Top Beveled Ring with Side Inset Crystals | ₹549 | /gifts/Jewellery/Rings/IMG_4149.JPG |
+| 41 | **Entwined Twisted Vine Crystal Ring** | Organic Botanical Vines Interlocking in 18K Yellow Gold | ₹519 | /gifts/Jewellery/Rings/IMG_4150.JPG |
+| 42 | **Baguette Cut Multi-Stone Stacking Band** | Alternating Round and Baguette Cut Stones in Channel Set | ₹589 | /gifts/Jewellery/Rings/IMG_4151.JPG |
+| 43 | **Starburst Celestial Diamond-Simulant Ring** | Explosive Light Reflection with Tapered Sunburst Prongs | ₹679 | /gifts/Jewellery/Rings/IMG_4152.JPG |
+| 44 | **Triple Wave Hammered Gold Accent Ring** | Fluid Sculptural Waves with High Polish Textured Surface | ₹489 | /gifts/Jewellery/Rings/IMG_4153.JPG |
+| 45 | **Emerald Cut Solitaire Ring in Platinum Finish** | Sophisticated Art Deco Step-Cut Center Gemstone | ₹699 | /gifts/Jewellery/Rings/IMG_4154.JPG |
+| 46 | **Romantic Rose Quartz Cushion Statement Ring** | Soft Pink Translucent Gemstone in Scalloped Crown Bezel | ₹599 | /gifts/Jewellery/Rings/IMG_4155.JPG |
+| 47 | **Rose Gold Milanese Mesh Strap Luxury Watch** | Ultra-Slim Bezel with Sunray Dial and Magnetic Clasp | ₹1499 | /gifts/Jewellery/Watch and bracelets/IMG_4133.JPG |
+| 48 | **Mother of Pearl Dial Watch with Matching Bangle** | Curated Gift Set Featuring Shimmering Dial and Pave Cuff | ₹1799 | /gifts/Jewellery/Watch and bracelets/IMG_4134.JPG |
+| 49 | **Classic Tennis Bracelet with Cubic Zirconia** | Seamless Continuous Strand with Double Safety Clasp | ₹799 | /gifts/Jewellery/Watch and bracelets/IMG_4135.JPG |
+| 50 | **Paperclip Link Charm Bracelet with Heart Lock** | 18K Gold Plated Chain with Engraved Heart Charm | ₹649 | /gifts/Jewellery/Watch and bracelets/IMG_4136.JPG |
+| 51 | **Minimalist Stainless Steel Quartz Timepiece** | Crisp White Dial with Rose Gold Baton Hands | ₹1299 | /gifts/Jewellery/Watch and bracelets/IMG_4137.JPG |
+| 52 | **Evil Eye Protective Blue Crystal Bangle** | Enamel and Zircon Evil Eye Motif on Hinged Gold Cuff | ₹599 | /gifts/Jewellery/Watch and bracelets/IMG_4138.JPG |
+| 53 | **Dainty Rose Gold Beaded Slider Bracelet** | Adjustable Bolotie Slider with High Polish Beads | ₹499 | /gifts/Jewellery/Watch and bracelets/IMG_4139.JPG |
+| 54 | **Roman Numeral Beveled Dial Leather Watch** | Genuine Leather Strap with Textured Cream Dial | ₹1399 | /gifts/Jewellery/Watch and bracelets/IMG_4140.JPG |
+| 55 | **Chunky Curb Link Statement Wrist Bracelet** | Substantial Polished Brass Curb Chain with Ring Clasp | ₹699 | /gifts/Jewellery/Watch and bracelets/IMG_4141.JPG |
+| 56 | **Celestial Star Charm Layered Bangle Set** | Stack of 3 Complementary Bangles with Star Dust Texture | ₹749 | /gifts/Jewellery/Watch and bracelets/IMG_4142.JPG |
+| 57 | **Emerald Green Dial Dress Watch with Gold Bracelet** | Deep Forest Jewel Dial with 5-Link Stainless Bracelet | ₹1599 | /gifts/Jewellery/Watch and bracelets/IMG_4143.JPG |
+| 58 | **Double Wrap Leather Buckle Wrist Strap** | Supple Tan Leather Wrap Around with Golden Hardware | ₹649 | /gifts/Jewellery/Watch and bracelets/IMG_4156.JPG |
+| 59 | **Solitaire Crystal Cuff Bracelet with Ball Finials** | Flexible Open Torque Bangle with Brilliant End Crystals | ₹549 | /gifts/Jewellery/Watch and bracelets/IMG_4157.JPG |
+| 60 | **Duo Timepiece and Pearl Bangle Gift Suite** | Elegant Watch Paired with Lustrous Cultured Pearl Bangle | ₹1899 | /gifts/Jewellery/Watch and bracelets/IMG_4158.JPG |
+| 61 | **Radiant Sunray Dial Slim Luxury Watch** | Pastel Pink Sunray Reflection with Vegan Leather Strap | ₹1199 | /gifts/Jewellery/Watch and bracelets/IMG_4159.JPG |
+| 62 | **Interlocking Rings Adjustable Cord Bracelet** | Symbol of Connection on Waterproof Braided Silk Cord | ₹449 | /gifts/Jewellery/Watch and bracelets/IMG_4160.JPG |
+| 63 | **Infinity Knot Rose Gold Bangle** | Graceful Infinity Loop Sculpture in Mirror Finish Rose Gold | ₹699 | /gifts/Jewellery/Watch and bracelets/IMG_4161.JPG |
+| 64 | **Vintage Tortoiseshell Accent Quartz Watch** | Acetate Links Interwoven with Polished Gold Metal | ₹1449 | /gifts/Jewellery/Watch and bracelets/IMG_4162.JPG |
+| 65 | **Micro-Pave Bar Slide Charm Bracelet** | Minimalist Curved Bar Set with 20 Micro Zirconia | ₹529 | /gifts/Jewellery/Watch and bracelets/IMG_4163.JPG |
+| 66 | **Geometric Mesh Chronograph Style Dress Watch** | Multi-Subdial Aesthetic with Sapphire Crystal Glass | ₹1699 | /gifts/Jewellery/Watch and bracelets/IMG_4164.JPG |
+| 67 | **Sparkling Tennis Bangle with Safety Clasp** | Hinged Oval Bangle Encrusted with Channel Set Stones | ₹849 | /gifts/Jewellery/Watch and bracelets/IMG_4165.JPG |
+
+##### Travel Accessories & Bags (7 Products)
+
+| # | Product Name in Website | Subtitle / Focus | Price (INR) | Corresponding Image Asset |
+| :--- | :--- | :--- | :--- | :--- |
+| 01 | **Cognac Saffiano Leather Travel Organizer Pouch** | Multi-Pocket Cable, Passport and Grooming Travel Case | ₹899 | /gifts/Traveling item/4c0e81a58e8b4668a6a21fd2d74ee247.jpg |
+| 02 | **Hardshell Monogram Cosmetic Vanity Case** | Portable Shockproof Travel Beauty Organizer | ₹1199 | /gifts/Traveling item/70a32d78097cda5610ceedc437749b19.jpg |
+| 03 | **Weekender Tech and Toiletries Compact Duffel Bag** | Lightweight Water-Repellent Short-Trip Carry-On | ₹1299 | /gifts/Traveling item/bc93fa7f7b87ea425e8bc07609464989.jpg |
+| 04 | **Jetsetter Packing Cubes 6-Piece Travel Set** | Breathable Compression Luggage Organizers | ₹799 | /gifts/Traveling item/c5a1e64ae8bef0d5452238b67a254856.jpg |
+| 05 | **RFID Blocking Travel Passport and Card Wallet** | Ultra-Slim Genuine Leather Boarding Pass Holder | ₹549 | /gifts/Traveling item/c87c18bc4c73d252a8f6d1321dfea229.jpg |
+| 06 | **Quilted Overnight Travel Pouch and Accessory Kit** | Padded Soft-Touch Travel Cosmetic and Essentials Case | ₹649 | /gifts/Traveling item/c95022be7a478a8daa91060252b1fd2a.jpg |
+| 07 | **Foldable Hanging Travel Toiletry Washbag** | 360 Swivel Hook Waterproof Multi-Tier Organizer | ₹699 | /gifts/Traveling item/df95ff8b0202438b97986f4e0848b9a2.jpg |
+
+##### Celebration Background Decoration Kits (11 Products)
+
+| # | Product Name in Website | Subtitle / Focus | Price (INR) | Corresponding Image Asset |
+| :--- | :--- | :--- | :--- | :--- |
+| 01 | **Rose Gold Confetti and Balloon Arch Party Kit** | Complete Celebration Backdrop with Metallic Foil Curtains | ₹599 | /gifts/Background decoration kit/229498704778b851a2ae6a867bcb002d.jpg |
+| 02 | **Pastel Champagne Fairy Light Decor Suite** | Warm Glow Backdrop with Micro-LED Copper String Lights | ₹699 | /gifts/Background decoration kit/3aacc88a02fadc2a98a33a197e9809e1.jpg |
+| 03 | **Sunset Amber Birthday Celebration Garland Kit** | Warm Sunset Tones with Happy Birthday Bunting Banner | ₹499 | /gifts/Background decoration kit/687b4a854ad3c9759c3f5eafc91b83a8.jpg |
+| 04 | **Midnight Glamour Silver and Black Backdrop Kit** | Executive Milestone and Cocktail Party Background Set | ₹649 | /gifts/Background decoration kit/815cde78662d415e1f0b9df7892d1603.jpg |
+| 05 | **Golden Radiance Milestone Anniversary Kit** | Metallic Chrome Gold Balloon Arch and Shimmer Wall | ₹749 | /gifts/Background decoration kit/8ab1fe315b7ee569cbe4f8a8d10ca6ac.jpg |
+| 06 | **Boho Terracotta Botanical Balloon Decor Kit** | Earth Tones with Eucalyptus Leaves and Kraft Bunting | ₹549 | /gifts/Background decoration kit/9037610b179b134173348070c5689ab1.jpg |
+| 07 | **Blush Pink and Ivory Romantic Backdrop Set** | Dreamy Floral Accents and Heart Foil Photobooth Kit | ₹599 | /gifts/Background decoration kit/9b8b87112a32ab749eb9bd57b690b158.jpg |
+| 08 | **Modern Monochrome Graphic Birthday Decor Kit** | Clean Black, White and Confetti Minimalist Party Pack | ₹449 | /gifts/Background decoration kit/a419c9769dc190445eb3cdb3f9125176.jpg |
+| 09 | **Ethereal Peach Cloud and Fairylight Arch Suite** | Double-Stuffed Pastel Balloons with Sparkle Backdrop | ₹799 | /gifts/Background decoration kit/a7d51bddfe784c3a971060e3af02f969.jpg |
+| 10 | **Vintage Velvet Lantern and Paper Pom Decor Set** | Eco-Friendly Reusable Honeycomb Lanterns and Streamers | ₹429 | /gifts/Background decoration kit/d3f68451f650f70953489d1ae240ec5b.jpg |
+| 11 | **Royal Amber and Gold Shimmer Curtain Party Pack** | Grand Celebration Photobooth with Glitter Accents | ₹499 | /gifts/Background decoration kit/e6114d60a36be6affec3693c5ab74a49.jpg |
 
 ### 3.3 AI Gift Finder & Gift Fit Score™ Algorithmic Engine
 - Users select recipient relation (*Partner, Mother, Best Friend, Colleague*), occasion (*Birthday, Anniversary, Apology, Milestone*), budget range, and desired vibe (*Romantic, Luxury, Whimsical, Practical*).
