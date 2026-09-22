@@ -13,6 +13,8 @@ export const authApiService = {
     last_name?: string;
     phone_number?: string;
     role?: string;
+    store_name?: string;
+    city?: string;
   }): Promise<AuthResponse> {
     const result = await api.post<AuthResponse>('/api/auth/register/', data);
     tokenManager.setTokens(result.access, result.refresh);

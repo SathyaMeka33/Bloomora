@@ -269,6 +269,7 @@ export interface GiftIntentInput {
   personality?: string[];
   budget?: number;
   budget_min?: number;
+  gift_type?: string;
   location?: string;
   delivery_date?: string;
   urgency?: string;

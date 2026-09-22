@@ -190,42 +190,69 @@ Return JSON strictly formatted as:
     }
   }
 
-  // Fallback curated combination engine
-  let selectedItems: { name: string; quantity: number; price: number; image: string }[] = [];
-  let title = 'Custom AI Curated Gift Set';
+  // Dynamic Fallback Curated Combination Engine
+  const relLower = relationship.toLowerCase();
+  const occLower = occasion.toLowerCase();
 
-  if (budget <= 200) {
+  // Find candidate products from catalog within budget
+  const candidateProducts = PRODUCTS.filter((p) => p.price <= budget * 1.05);
+
+  let selectedItems: { name: string; quantity: number; price: number; image: string }[] = [];
+  let title = `AI Curated ${input.relationship || 'Gift'} Set for ${input.recipient || 'Your Loved One'}`;
+
+  // Find primary product matching relationship or occasion
+  let primaryProduct = candidateProducts.find((p) => {
+    if (relLower.includes('mom') || relLower.includes('mother')) {
+      return p.recipientTag === 'for-parents' || p.category === 'beauty-wellness' || p.category === 'flowers' || p.category === 'fragrances-candles';
+    }
+    if (relLower.includes('dad') || relLower.includes('father')) {
+      return p.recipientTag === 'for-parents' || p.category === 'corporate-gifts' || p.category === 'books-stationery' || p.category === 'gourmet-hampers';
+    }
+    if (relLower.includes('colleague') || relLower.includes('office') || relLower.includes('boss')) {
+      return p.recipientTag === 'for-colleagues' || p.category === 'corporate-gifts' || p.category === 'books-stationery';
+    }
+    if (relLower.includes('sister') || relLower.includes('brother') || relLower.includes('friend')) {
+      return p.recipientTag === 'for-friends' || p.category === 'cakes' || p.category === 'custom-gifts' || p.category === 'chocolate-bouquets';
+    }
+    if (relLower.includes('wife') || relLower.includes('girlfriend') || relLower.includes('partner') || relLower.includes('romantic')) {
+      return p.recipientTag === 'for-her' || p.category === 'jewellery' || p.category === 'bouquets' || p.category === 'flowers' || p.category === 'cakes';
+    }
+    return false;
+  });
+
+  if (!primaryProduct && candidateProducts.length > 0) {
+    primaryProduct = candidateProducts[0];
+  }
+
+  if (primaryProduct) {
+    selectedItems.push({
+      name: primaryProduct.name,
+      quantity: 1,
+      price: primaryProduct.price,
+      image: primaryProduct.images[0] || 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=400&q=80',
+    });
+
+    // Add complementary greeting card if budget permits
+    const remaining = budget - primaryProduct.price;
+    if (remaining >= 40) {
+      selectedItems.push({
+        name: 'Gold Embossed Handwritten Greeting Card',
+        quantity: 1,
+        price: Math.min(remaining, 50),
+        image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=400&q=80',
+      });
+    }
+    title = `${primaryProduct.name} & Card Set`;
+  } else {
+    // Budget micro-token
     selectedItems = [
       { name: '1 Fresh Dutch Red Rose', quantity: 1, price: 60, image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80' },
-      { name: 'Cadbury Dairy Milk (13.2g)', quantity: 2, price: 40, image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=400&q=80' },
-      { name: 'Handwritten Gold Mini Tag', quantity: 1, price: 20, image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=400&q=80' },
-    ];
-    title = `The Pocket Joy Set for ${input.recipient || 'Your Special One'}`;
-  } else if (budget <= 350) {
-    selectedItems = [
-      { name: '2 Long-Stem Dutch Red Roses', quantity: 1, price: 120, image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80' },
       { name: 'Cadbury Dairy Milk Silk (60g)', quantity: 1, price: 90, image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=400&q=80' },
-      { name: 'Gold Foil Embossed Greeting Card', quantity: 1, price: 35, image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=400&q=80' },
     ];
-    title = `The Sweet Affection Combo for ${input.recipient || 'Your Loved One'}`;
-  } else if (budget <= 600) {
-    selectedItems = [
-      { name: '3 Dutch Roses & Gypsophila Accent', quantity: 1, price: 210, image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80' },
-      { name: 'Cadbury Celebrations Box (113g)', quantity: 1, price: 180, image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=400&q=80' },
-      { name: 'Luxury Gold Foil Greeting Card', quantity: 1, price: 49, image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=400&q=80' },
-    ];
-    title = `Celebration Classic Hamper for ${input.recipient || 'Your Special One'}`;
-  } else {
-    selectedItems = [
-      { name: '8 Golden Ferrero Rocher Truffles', quantity: 1, price: 450, image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=400&q=80' },
-      { name: 'Preserved Velvet Rose in Glass Dome', quantity: 1, price: 550, image: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&w=400&q=80' },
-      { name: 'Embossed Custom Gold Card', quantity: 1, price: 50, image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=400&q=80' },
-    ];
-    title = `Royal Luxury Treasure for ${input.recipient || 'Your Beloved'}`;
   }
 
   const itemsTotal = selectedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const reasoning = `AI selected a balanced combination of fresh Dutch roses and artisanal chocolates instead of a single expensive bouquet. This maximizes perceived luxury and emotional sweetness within your exact budget of ₹${budget} in ${city}.`;
+  const reasoning = `Curated especially for ${input.recipient || 'them'} (${input.relationship}) on their ${input.occasion} in ${city}. Chosen to maximize emotional delight and perceived value within your ₹${budget} budget.`;
 
   const recommendation: GiftComboRecommendation = {
     id: `rec-${Date.now()}`,
@@ -242,14 +269,14 @@ Return JSON strictly formatted as:
   const alternativeCombos: GiftComboRecommendation[] = [
     {
       id: `alt-1`,
-      title: `Floral Focused Alternative for ${input.recipient || 'Them'}`,
-      reasoning: 'Prioritizes maximum fresh floral stem count and silk ribbon wrap.',
+      title: `Artisanal Alternative for ${input.recipient || 'Them'}`,
+      reasoning: `Tailored secondary option suited for ${input.relationship} within ₹${budget}.`,
       totalPrice: Math.min(budget, itemsTotal),
       budget,
-      savings: 15,
+      savings: Math.max(0, budget - Math.min(budget, itemsTotal)),
       items: [
-        { name: '4 Dutch Roses Bouquet', quantity: 1, price: itemsTotal - 30, image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80' },
-        { name: 'Personalized Mini Note', quantity: 1, price: 30, image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=400&q=80' },
+        { name: 'Artisanal Keepsake Set', quantity: 1, price: Math.max(80, itemsTotal - 30), image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=400&q=80' },
+        { name: 'Personalized Greeting Card', quantity: 1, price: 30, image: 'https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=400&q=80' },
       ],
       packaging: 'Silk Paper & Satin Bow',
       recommendedCardMessage: cardMessage,

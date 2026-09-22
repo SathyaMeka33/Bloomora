@@ -1,4 +1,4 @@
-﻿"""
+"""
 Bloomora AI App - Views
 AI Gift Finder, Chat Concierge, Message Generator, Budget Optimizer
 """
@@ -19,9 +19,14 @@ from apps.catalog.serializers import ProductListSerializer
 
 class GiftFinderAIView(APIView):
     """POST /api/ai/gift-finder/ - Full AI gift discovery with Gemini enhancement."""
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
     def post(self, request):
+        gift_type = request.data.get("gift_type", "")
+        free_text = request.data.get("free_text", "")
+        if gift_type and gift_type.lower() not in free_text.lower():
+            free_text = f"Gift type preference: {gift_type}. {free_text}".strip()
+
         # Build intent
         intent = GiftIntent(
             user=request.user if request.user.is_authenticated else None,
@@ -35,12 +40,12 @@ class GiftFinderAIView(APIView):
             location=request.data.get("location", ""),
             delivery_date=request.data.get("delivery_date"),
             urgency=request.data.get("urgency", ""),
-            free_text=request.data.get("free_text", ""),
+            free_text=free_text,
         )
         intent.save()
 
         # Rule-based recommendations
-        recommendations = get_recommendations(intent, limit=10)
+        recommendations = get_recommendations(intent, limit=12)
 
         # Enhance with AI (Gemini) if available
         recommendations = generate_gift_recommendations_with_ai(request.data, recommendations)

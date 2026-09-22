@@ -217,7 +217,7 @@ export default function PartnerPortalPage() {
   const [sellerLoginLoading, setSellerLoginLoading] = useState(false);
   const [showSellerPassword, setShowSellerPassword] = useState(false);
 
-  const handleSellerLogin = (e: React.FormEvent) => {
+  const handleSellerLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!sellerLoginEmail.trim() || !sellerLoginPassword.trim()) {
       setSellerLoginError('Please enter your merchant email address and password.');
@@ -226,7 +226,7 @@ export default function PartnerPortalPage() {
     setSellerLoginLoading(true);
     setSellerLoginError('');
 
-    const res = authenticateSeller(sellerLoginEmail, sellerLoginPassword);
+    const res = await authenticateSeller(sellerLoginEmail, sellerLoginPassword);
     if (!res.success) {
       setSellerLoginError(res.error || 'Invalid merchant credentials. Please verify your email and password.');
       setSellerLoginLoading(false);
@@ -352,7 +352,7 @@ export default function PartnerPortalPage() {
           <div className="pt-2 border-t border-[#F4E8E5] text-center space-y-2">
             <p className="text-xs text-[#8B8B8B]">
               New vendor?{' '}
-              <Link href="/auth/register" className="text-[#B58A4B] font-bold hover:underline">
+              <Link href="/auth/register?role=seller" className="text-[#B58A4B] font-bold hover:underline">
                 Register as a Seller Partner
               </Link>
             </p>

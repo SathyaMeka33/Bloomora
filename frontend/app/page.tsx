@@ -30,12 +30,12 @@ export default function HomePage() {
   const upcomingOccasions = React.useMemo(() => getUpcomingIndianOccasions(4), []);
 
   const relationshipCategories = [
-    { id: 'for-her', title: 'For Her', subtitle: 'Roses & Velvet Chocolate', image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80' },
-    { id: 'for-mom', title: 'For Mom', subtitle: 'Flower Basket & Gift Hamper', image: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80' },
-    { id: 'for-friends', title: 'For Friends', subtitle: 'Surprise Chocolate Box', image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80' },
-    { id: 'for-dad', title: 'For Dad', subtitle: 'Watch Box & Executive Gift', image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80' },
-    { id: 'student-budget', title: 'Student Budget', subtitle: 'Pocket-Friendly Surprise', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80' },
-    { id: 'corporate', title: 'Corporate', subtitle: 'Black Luxury Gift Box', image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80' },
+    { id: 'for-her', title: 'For Her', subtitle: 'Fresh Rose Bouquets', image: '/gifts/Bouquets/IMG_4110.JPG' },
+    { id: 'for-mom', title: 'For Mom', subtitle: 'Rosette Cakes & Flora', image: '/gifts/Cakes/IMG_4021.JPG' },
+    { id: 'for-friends', title: 'For Friends', subtitle: 'Kawaii Stationery & Sets', image: '/gifts/Stationary items/IMG_4054.JPG' },
+    { id: 'for-dad', title: 'For Dad', subtitle: 'Watches & Accessories', image: '/gifts/Accessories for mens/31539d062f953b238e58806ce775e1a7.jpg' },
+    { id: 'student-budget', title: 'Student Budget', subtitle: 'Wax-Sealed Love Letters', image: '/gifts/Letters/00d2b1c0f895bbf66c1f748d4e4fedf8.jpg' },
+    { id: 'corporate', title: 'Bespoke Hampers', subtitle: 'Curated Birthday Boxes', image: '/gifts/Customised hampers/IMG_4076.JPG' },
   ];
 
 

@@ -569,10 +569,10 @@ export function saveRegisteredSellerAccount(account: RegisteredSellerAccount): v
   }
 }
 
-export function authenticateSeller(
+export async function authenticateSeller(
   email: string,
   password: string
-): { success: boolean; error?: string; account?: RegisteredSellerAccount } {
+): Promise<{ success: boolean; error?: string; account?: RegisteredSellerAccount }> {
   const cleanEmail = email.trim().toLowerCase();
   const cleanPass = password.trim();
 
@@ -580,6 +580,42 @@ export function authenticateSeller(
     return { success: false, error: 'Please enter both your seller email and password.' };
   }
 
+  // 1. Try real backend Django API first
+  try {
+    const { authApiService } = await import('@/lib/api');
+    await authApiService.login({ email: cleanEmail, password: cleanPass });
+    const me = await authApiService.getMe();
+
+    if (me.role === 'seller' || me.role === 'admin') {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('bloomora_seller_authenticated', 'true');
+        localStorage.setItem('bloomora_active_role', 'seller');
+        localStorage.setItem('bloomora_role_chosen', 'seller');
+      }
+
+      const account: RegisteredSellerAccount = {
+        email: me.email,
+        password: cleanPass,
+        storeName: `${me.first_name || 'Artisan'} Studio`,
+        ownerName: me.full_name || `${me.first_name} ${me.last_name}`.trim(),
+        phone: me.phone_number || '+91 98765 43210',
+        city: 'Surampalem / Rajahmundry',
+        storeCategory: 'Artisanal Gifts & Flowers',
+      };
+      saveRegisteredSellerAccount(account);
+      return { success: true, account };
+    } else {
+      return {
+        success: false,
+        error: 'This account is registered as a customer, not a seller partner.',
+      };
+    }
+  } catch (err: unknown) {
+    // If backend rejects credentials or has connection issue, check offline fallback
+    console.warn('Backend seller auth check error, falling back to local store:', err);
+  }
+
+  // 2. Fallback to local accounts (demo seller accounts, offline mode)
   const accounts = getRegisteredSellerAccounts();
   const match = accounts.find(
     (a) => a.email.toLowerCase() === cleanEmail && a.password === cleanPass

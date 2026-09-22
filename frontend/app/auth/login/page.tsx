@@ -1,19 +1,31 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, EyeOff, ArrowRight, Sparkles, Mail, Lock, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useBloomoraAuth } from '@/lib/hooks/useBloomoraAuth';
 import { useSellerStore, authenticateSeller } from '@/lib/sellerStore';
 import { Store, ShoppingBag } from 'lucide-react';
 
-export default function LoginPage() {
+function LoginContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const roleParam = searchParams.get('role');
   const { login } = useBloomoraAuth();
   const { setActiveRole } = useSellerStore();
-  const [selectedRole, setSelectedRole] = useState<'customer' | 'seller'>('customer');
+  const [selectedRole, setSelectedRole] = useState<'customer' | 'seller'>(
+    roleParam === 'seller' ? 'seller' : 'customer'
+  );
+
+  useEffect(() => {
+    if (roleParam === 'seller') {
+      setSelectedRole('seller');
+    } else if (roleParam === 'customer') {
+      setSelectedRole('customer');
+    }
+  }, [roleParam]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -39,8 +51,8 @@ export default function LoginPage() {
     setError('');
 
     if (selectedRole === 'seller') {
-      // Authenticate seller against registered/verified credentials
-      const res = authenticateSeller(email, password);
+      // Authenticate seller against registered/verified credentials (both Django DB and store)
+      const res = await authenticateSeller(email, password);
       if (!res.success) {
         setError(res.error || 'Invalid merchant credentials. Please check your seller email and password.');
         setLoading(false);
@@ -56,6 +68,22 @@ export default function LoginPage() {
 
     try {
       await login(email.trim(), password);
+      const { authApiService } = await import('@/lib/api');
+      const me = await authApiService.getMe();
+
+      if (me.role === 'seller') {
+        setActiveRole('seller');
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('bloomora_role_chosen', 'seller');
+          localStorage.setItem('bloomora_seller_authenticated', 'true');
+        }
+        setSuccess(true);
+        setTimeout(() => {
+          router.push('/partner');
+        }, 800);
+        return;
+      }
+
       setActiveRole('customer');
       if (typeof window !== 'undefined') {
         localStorage.setItem('bloomora_role_chosen', 'customer');
@@ -180,7 +208,7 @@ export default function LoginPage() {
                   {selectedRole === 'seller' ? (
                     <>
                       Partner Merchant Studio. Need an account?{' '}
-                      <Link href="/auth/register" style={{ color: '#B58A4B', fontWeight: 700, textDecoration: 'none' }}>
+                      <Link href="/auth/register?role=seller" style={{ color: '#B58A4B', fontWeight: 700, textDecoration: 'none' }}>
                         Register as Seller
                       </Link>
                     </>
@@ -326,5 +354,13 @@ export default function LoginPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', background: '#FFF8F5' }} />}>
+      <LoginContent />
+    </Suspense>
   );
 }

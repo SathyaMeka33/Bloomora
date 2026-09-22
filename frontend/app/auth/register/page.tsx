@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, EyeOff, ArrowRight, Sparkles, Mail, Lock, User, Phone, Loader2, CheckCircle, AlertCircle, Check } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useSellerStore, saveRegisteredSellerAccount, clearSellerAuthentication } from '@/lib/sellerStore';
 import { Store, ShoppingBag } from 'lucide-react';
 
@@ -14,10 +14,23 @@ const PASSWORD_RULES = [
   { label: 'One number', test: (p: string) => /[0-9]/.test(p) },
 ];
 
-export default function RegisterPage() {
+function RegisterContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const roleParam = searchParams.get('role');
   const { setActiveRole, updateStoreProfile } = useSellerStore();
-  const [selectedRole, setSelectedRole] = useState<'customer' | 'seller'>('customer');
+  const [selectedRole, setSelectedRole] = useState<'customer' | 'seller'>(
+    roleParam === 'seller' ? 'seller' : 'customer'
+  );
+
+  useEffect(() => {
+    if (roleParam === 'seller') {
+      setSelectedRole('seller');
+    } else if (roleParam === 'customer') {
+      setSelectedRole('customer');
+    }
+  }, [roleParam]);
+
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -46,8 +59,13 @@ export default function RegisterPage() {
   const strengthColors = ['#EFE8E4', '#D98C95', '#C8A46A', '#5A9E7B'];
   const strengthLabels = ['', 'Weak', 'Fair', 'Strong'];
 
-  const valid = form.firstName.trim() && form.email.trim() && form.password.length >= 8 &&
-    form.password === form.confirmPassword && agree;
+  const valid = Boolean(
+    (selectedRole === 'seller' ? (form.storeName.trim() && form.firstName.trim()) : form.firstName.trim()) &&
+    form.email.trim() &&
+    form.password.length >= 8 &&
+    form.password === form.confirmPassword &&
+    agree
+  );
 
   const inputWrapper = (hasError = false): React.CSSProperties => ({
     display: 'flex', alignItems: 'center', gap: '12px',
@@ -89,7 +107,20 @@ export default function RegisterPage() {
     setLoading(true); setError('');
     try {
       if (selectedRole === 'seller') {
-        // Seller Account Creation: Register credentials and store profile
+        // 1. Create seller in Django backend with explicit role: 'seller'
+        const { authApiService } = await import('@/lib/api');
+        await authApiService.register({
+          email: form.email.trim(),
+          password: form.password,
+          first_name: form.firstName.trim(),
+          last_name: form.lastName.trim(),
+          phone_number: form.phone.trim() || undefined,
+          role: 'seller',
+          store_name: form.storeName.trim() || undefined,
+          city: form.city.trim() || undefined,
+        });
+
+        // 2. Register credentials and store profile in local store
         const storeName = form.storeName.trim() || `${form.firstName}'s Artisan Studio`;
         const ownerName = `${form.firstName.trim()} ${form.lastName.trim()}`.trim();
         const email = form.email.trim();
@@ -130,6 +161,7 @@ export default function RegisterPage() {
           first_name: form.firstName.trim(),
           last_name: form.lastName.trim(),
           phone_number: form.phone.trim() || undefined,
+          role: 'customer',
         });
         setSuccess(true);
         setTimeout(() => router.push('/account'), 1500);
@@ -467,5 +499,13 @@ export default function RegisterPage() {
         @media (min-width: 900px) { .auth-left-panel { display: block !important; } }
       `}</style>
     </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', background: '#FFF8F5' }} />}>
+      <RegisterContent />
+    </Suspense>
   );
 }

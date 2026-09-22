@@ -91,3 +91,14 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #D98C95;
 }
+
+/* Hide Next.js dev indicator */
+nextjs-portal,
+[data-nextjs-dev-indicator],
+[data-nextjs-toast],
+[data-nextjs-dialog-overlay] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}

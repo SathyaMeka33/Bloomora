@@ -46,15 +46,15 @@ function CatalogContent() {
 
   // Build filter tabs combining high-level curation + exact category keys
   const categoryFilters = useMemo(() => [
-    { id: 'all', label: 'All Gifts & Hampers' },
-    { id: 'bouquets', label: 'Velvet Bouquets' },
-    { id: 'cakes', label: 'Bento Cakes' },
-    { id: 'flowers', label: 'Floral Bouquets' },
-    { id: 'chocolate-bouquets', label: 'Chocolate Bouquets' },
-    { id: 'corporate-gifts', label: 'Corporate & Executive' },
-    { id: 'kids-gifting', label: 'Kids Art & Crafts' },
-    { id: 'premium-gifts', label: 'Royal Reserve Hampers' },
-    { id: 'custom-gifts', label: 'Custom Mugs & Keepsakes' },
+    { id: 'all', label: 'All Gifts (160)' },
+    { id: 'bouquets', label: 'Bouquets (23)' },
+    { id: 'cakes', label: 'Cakes (22)' },
+    { id: 'accessories-for-men', label: "Men's Accessories (32)" },
+    { id: 'customised-hampers', label: 'Customised Hampers (13)' },
+    { id: 'letters', label: 'Letters & Seals (18)' },
+    { id: 'plants', label: 'Plants & Succulents (14)' },
+    { id: 'stationary-items', label: 'Stationery (27)' },
+    { id: 'cars', label: 'RC Cars (11)' },
     { id: 'best-sellers', label: 'Best Sellers' },
     { id: 'trending', label: 'Trending' },
   ], []);

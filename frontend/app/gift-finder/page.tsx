@@ -11,10 +11,31 @@ import { aiApiService } from '@/lib/api';
 import type { Recommendation } from '@/lib/api';
 import Link from 'next/link';
 import { useTaxonomy } from '@/lib/hooks/useTaxonomy';
+import { PRODUCTS } from '@/lib/mockData';
 
 /* ===========================
    WIZARD DATA
 =========================== */
+const GIFT_TYPES_STATIC = [
+  { id: 'flowers', slug: 'flowers', name: 'Floral Arrangements', icon: '🌸' },
+  { id: 'bouquets', slug: 'bouquets', name: 'Velvet Hatbox Bouquets', icon: '🎁' },
+  { id: 'cakes', slug: 'cakes', name: 'Gourmet Bento Cakes', icon: '🎂' },
+  { id: 'chocolate-bouquets', slug: 'chocolate-bouquets', name: 'Chocolate Bouquets', icon: '🍫' },
+  { id: 'personalized', slug: 'personalized', name: 'Personalized Keepsakes', icon: '✨' },
+  { id: 'custom-gifts', slug: 'custom-gifts', name: 'Handcrafted Ceramic Mugs', icon: '☕' },
+  { id: 'jewellery', slug: 'jewellery', name: 'Fine Jewellery & Charms', icon: '👑' },
+  { id: 'fragrances-candles', slug: 'fragrances-candles', name: 'Scented Candles & Aromas', icon: '🕯️' },
+  { id: 'beauty-wellness', slug: 'beauty-wellness', name: 'Organic Spa & Self-Care', icon: '🛁' },
+  { id: 'plants', slug: 'plants', name: 'Living Plants & Bonsai', icon: '🌿' },
+  { id: 'books-stationery', slug: 'books-stationery', name: 'Leather Journals & Pens', icon: '📚' },
+  { id: 'corporate-gifts', slug: 'corporate-gifts', name: 'Corporate & Executive Kits', icon: '💼' },
+  { id: 'kids-gifting', slug: 'kids-gifting', name: 'Kids Art & Craft Hampers', icon: '🎨' },
+  { id: 'baby-gifts', slug: 'baby-gifts', name: 'Baby & New Parent Hampers', icon: '👶' },
+  { id: 'gourmet-hampers', slug: 'gourmet-hampers', name: 'Gourmet Dry Fruits & Sweets', icon: '🥜' },
+  { id: 'premium-gifts', slug: 'premium-gifts', name: 'Royal Reserve Wooden Chests', icon: '🏆' },
+  { id: 'mini-gifts', slug: 'mini-gifts', name: 'Pocket Surprises Under ₹199', icon: '🎈' },
+];
+
 // Fallback static data — overridden by taxonomy hook when loaded
 const RELATIONSHIPS_STATIC = [
   { id: 'partner', label: 'Partner / Lover', emoji: '❤️' },
@@ -361,7 +382,9 @@ export default function GiftFinderPage() {
   // Merge with static fallbacks so the page works even before taxonomy loads
   const relationships = recipient_types.length ? recipient_types.map(r => ({ id: r.slug, label: r.name, emoji: r.emoji || '🎁' })) : RELATIONSHIPS_STATIC;
   const occasions = occasion_types.length ? occasion_types.map(o => ({ id: o.slug, label: o.name, emoji: o.emoji || '🎁' })) : OCCASIONS_STATIC;
-  const giftTypes = gift_types.filter(g => !g.subcategories?.length === false || true);
+  const giftTypes = gift_types.length
+    ? gift_types.map(g => ({ id: g.slug, slug: g.slug, name: g.name, icon: g.icon || '🎁' }))
+    : GIFT_TYPES_STATIC;
 
   const STEPS = 7;
   const next = () => setStep(s => Math.min(s + 1, 8) as Step);
@@ -379,6 +402,117 @@ export default function GiftFinderPage() {
     return true;
   };
 
+  const computeClientRecommendations = (currentForm: FormData): Recommendation[] => {
+    const reqGiftType = currentForm.giftType?.toLowerCase() || '';
+    const rel = currentForm.relationship?.toLowerCase() || '';
+    const occ = currentForm.occasion?.toLowerCase() || '';
+    const emo = currentForm.emotion?.toLowerCase() || '';
+    const interests = currentForm.interests || [];
+    const bMax = currentForm.budget?.max;
+    const bMin = currentForm.budget?.min;
+
+    const scored = PRODUCTS.map(p => {
+      let score = 45;
+      const reasons: string[] = [];
+
+      // 1. Gift type match
+      if (reqGiftType) {
+        if (p.category === reqGiftType || p.tags?.includes(reqGiftType)) {
+          score += 35;
+          reasons.push(`matches your desired ${reqGiftType.replace('-', ' ')} category`);
+        } else {
+          score -= 30;
+        }
+      }
+
+      // 2. Relationship match
+      const relKeywords: Record<string, string[]> = {
+        partner: ['for-her', 'for-him', 'partner', 'love', 'romantic', 'anniversary'],
+        mother: ['for-parents', 'for-her', 'mother', 'mom'],
+        father: ['for-parents', 'for-him', 'father', 'dad'],
+        sibling: ['sibling', 'brother', 'sister', 'for-friends'],
+        friend: ['for-friends', 'friend', 'best-friend'],
+        colleague: ['for-colleagues', 'corporate', 'executive'],
+        child: ['kids-gifting', 'baby-gifts', 'child'],
+      };
+      const matchingTags = relKeywords[rel] || [rel];
+      if (matchingTags.some(t => p.recipientTag === t || p.tags?.includes(t) || p.description.toLowerCase().includes(t))) {
+        score += 22;
+        reasons.push(`curated thoughtfully for your ${currentForm.relationship}`);
+      }
+
+      // 3. Occasion match
+      if (occ) {
+        const occClean = occ.replace('-', ' ');
+        if (p.occasion?.some(o => o.includes(occClean) || occClean.includes(o)) || p.tags?.includes(occ)) {
+          score += 20;
+          reasons.push(`perfectly suited for ${currentForm.occasion}`);
+        }
+      }
+
+      // 4. Emotion match
+      if (emo && (p.tags?.includes(emo) || p.aiRecommendationReason?.toLowerCase().includes(emo))) {
+        score += 15;
+        reasons.push(`evokes a genuine feeling of being ${emo}`);
+      }
+
+      // 5. Interests match
+      if (interests.length) {
+        const matched = interests.filter(i => p.tags?.includes(i) || p.description.toLowerCase().includes(i));
+        if (matched.length) {
+          score += Math.min(16, matched.length * 8);
+          reasons.push(`aligns with interests in ${matched.slice(0, 2).join(', ')}`);
+        }
+      }
+
+      // 6. Budget match
+      if (bMax) {
+        if (p.price <= bMax) {
+          score += 12;
+          if (bMin && p.price >= bMin) {
+            score += 8;
+            reasons.push(`ideal fit for your ₹${bMin}–₹${bMax} budget`);
+          } else {
+            reasons.push(`well within your ₹${bMax} budget`);
+          }
+        } else if (p.price <= bMax * 1.15) {
+          score -= 4;
+        } else {
+          score -= 22;
+        }
+      }
+
+      score = Math.max(30, Math.min(98, score));
+      const recipientName = currentForm.recipientName || 'them';
+      const why = `Chosen for ${recipientName}: ${(reasons.length ? reasons.slice(0, 3) : ['hand-selected by Bloomora Gift Intelligence']).join(', ')}.`;
+
+      return {
+        product: {
+          id: p.id as any,
+          name: p.name,
+          subtitle: p.subtitle,
+          price: p.price,
+          original_price: p.originalPrice,
+          images: p.images,
+          seller_name: 'Bloomora Signature Collection',
+          customizable: p.customizable,
+          same_day_available: true,
+          delivery_time_hours: p.preparationTimeMinutes <= 15 ? 2 : 4,
+          is_best_seller: p.isBestSeller,
+        } as any,
+        fit_score: score,
+        confidence: Math.round(score) / 100,
+        why_this_gift: why,
+        delivery_estimate: p.preparationTimeMinutes <= 15 ? '2h - 4h' : '24h',
+        personalization_available: Boolean(p.customizable),
+        rank: 1,
+      };
+    });
+
+    scored.sort((a, b) => b.fit_score - a.fit_score);
+    return scored.slice(0, 8).map((item, idx) => ({ ...item, rank: idx + 1 }));
+  };
+
   const handleFind = useCallback(async () => {
     setLoading(true); setError(''); setResults([]);
     try {
@@ -386,6 +520,7 @@ export default function GiftFinderPage() {
         recipient: { name: form.recipientName },
         relationship: form.relationship,
         occasion: form.occasion,
+        gift_type: form.giftType,
         emotion: form.emotion,
         interests: form.interests,
         budget: form.budget?.max,
@@ -396,10 +531,22 @@ export default function GiftFinderPage() {
           form.giftType ? `Gift type preference: ${form.giftType}` : '',
         ].filter(Boolean).join('. '),
       });
-      setResults(res.recommendations);
+      if (res && res.recommendations && res.recommendations.length > 0) {
+        setResults(res.recommendations);
+        setStep(8);
+        return;
+      }
+      const localRecs = computeClientRecommendations(form);
+      setResults(localRecs);
       setStep(8);
     } catch {
-      setError('Could not reach the Bloomora API. Please ensure the backend is running on port 8000.');
+      const localRecs = computeClientRecommendations(form);
+      if (localRecs.length > 0) {
+        setResults(localRecs);
+        setStep(8);
+      } else {
+        setError('Could not reach the Bloomora API. Please ensure the backend is running on port 8000.');
+      }
     } finally { setLoading(false); }
   }, [form]);
 
